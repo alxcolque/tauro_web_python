@@ -43,3 +43,12 @@ app.register_blueprint(auth_router)
 
 from app.routes.product_router import product_route
 app.register_blueprint(product_route)
+
+from app.routes.category_router import category_router
+app.register_blueprint(category_router)
+
+from app.routes.user_router import user_router
+app.register_blueprint(user_router)
+
+from app.routes.order_router import order_router
+app.register_blueprint(order_router)

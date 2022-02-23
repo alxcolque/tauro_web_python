@@ -71,11 +71,11 @@
     <div class="swiper product-slider">
 
         <div class="swiper-wrapper">
-
+            {% for data in producto  %}
             <div class="swiper-slide box">
-                <img src="image/product-1.png" alt="">
-                <h3>fresh orange</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
+                <img src="{{ url_for('static', filename='img/' + data.img_url) }}" alt="">
+                <h3>{{data.product}}</h3>
+                <div class="price"> Bs. {{data.price}}/- </div>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -83,119 +83,12 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <a href="#" class="btn">Añadir al carrito</a>
+                <button onclick="btnAgregarCarrito('{{data.id}}')" class="btn">Añadir al carrito</button>
             </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-2.png" alt="">
-                <h3>fresh onion</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-3.png" alt="">
-                <h3>fresh meat</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-4.png" alt="">
-                <h3>fresh cabbage</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
+            {% endfor %}
         </div>
 
     </div>
-
-    <div class="swiper product-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide box">
-                <img src="image/product-5.png" alt="">
-                <h3>fresh potato</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-6.png" alt="">
-                <h3>fresh avocado</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-7.png" alt="">
-                <h3>fresh carrot</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-8.png" alt="">
-                <h3>green lemon</h3>
-                <div class="price"> $4.99/- - 10.99/- </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Añadir al carrito</a>
-            </div>
-
-        </div>
-
-    </div>
-
 
 </section>
 
@@ -208,34 +101,16 @@
     <h1 class="heading"> product <span>categories</span> </h1>
 
     <div class="box-container">
-
+        {% for data in categories  %}
         <div class="box">
-            <img src="image/cat-1.png" alt="">
-            <h3>vegitables</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">shop now</a>
+            
+            <h3>{{data.category}}</h3>
+            <p>hasta 50% de descuento</p>
+            <a href="#" class="btn">Ver mas</a>
         </div>
+        {% endfor %}
 
-        <div class="box">
-            <img src="image/cat-2.png" alt="">
-            <h3>fresh fruits</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">shop now</a>
-        </div>
-
-        <div class="box">
-            <img src="image/cat-3.png" alt="">
-            <h3>dairy products</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">shop now</a>
-        </div>
-
-        <div class="box">
-            <img src="image/cat-4.png" alt="">
-            <h3>fresh meat</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">shop now</a>
-        </div>
+        
 
     </div>
 
@@ -243,128 +118,6 @@
 
 <!-- categories section ends -->
 
-<!-- review section starts  -->
-
-<section class="review" id="review">
-
-    <h1 class="heading"> customer's <span>review</span> </h1>
-
-    <div class="swiper review-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide box">
-                <img src="image/pic-1.png" alt="">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/pic-2.png" alt="">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/pic-3.png" alt="">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/pic-4.png" alt="">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                <h3>john deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- review section ends -->
-
-<!-- blogs section starts  -->
-
-<section class="blogs" id="blogs">
-
-    <h1 class="heading"> our <span>blogs</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="image/blog-1.jpg" alt="">
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-user"></i> by user </a>
-                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                </div>
-                <h3>fresh and organic vegitables and fruits</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="image/blog-2.jpg" alt="">
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-user"></i> by user </a>
-                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                </div>
-                <h3>fresh and organic vegitables and fruits</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="image/blog-3.jpg" alt="">
-            <div class="content">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-user"></i> by user </a>
-                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                </div>
-                <h3>fresh and organic vegitables and fruits</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- blogs section ends -->
 
 
 
@@ -377,6 +130,31 @@
 <!-- Fin bloque estilos -->
 
 {% block js%}
-
+<script>
+    function btnAgregarCarrito(id){
+        $.ajax({
+          url: "/client/micarrito",
+          type: 'POST',
+          data: {
+            //'_token': $('meta[name="csrf-token"]').attr('content'),
+            'id': id,
+          },
+          success: function (data) {
+            /* var json = $.parseJSON(
+                data); */ // create an object with the key of the array
+            console.log('Todo salió bien');
+            //window.location.reload(true);
+  
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert('error');
+          }
+        });
+      };
+    $(document).ready(function () {
+      
+  
+    });
+  </script>
 {% endblock %}
 <!-- Fin bloque scripts -->
