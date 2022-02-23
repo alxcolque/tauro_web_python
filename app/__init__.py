@@ -8,6 +8,7 @@ from app.config import (_db_user, _db_pass, _db_host,_db_name, _os_path)
 import secrets
 
 #
+UPLOAD_FOLDER = 'app/static/img/'
 OS_PAHT = _os_path 
 
 app = Flask(__name__, template_folder="views")
@@ -21,8 +22,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
-#app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 db = SQLAlchemy(app)
 
@@ -40,3 +41,5 @@ app.register_blueprint(welcome_router)
 from app.routes.auth_router import auth_router
 app.register_blueprint(auth_router)
 
+from app.routes.product_router import product_route
+app.register_blueprint(product_route)

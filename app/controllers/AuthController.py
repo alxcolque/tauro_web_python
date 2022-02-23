@@ -1,3 +1,4 @@
+from ctypes import addressof
 from app.models.User import User
 from app.models.Client import Client
 from app.models.Admin import Admin
@@ -21,16 +22,23 @@ class AuthController():
     
     def signup(self):
         if request.method == 'POST':
-            name = request.form['name']
+            name = request.form['nombre']
             email = request.form['email']
-            username = request.form['username']
+            username = request.form['usuario']
             password = bcrypt.generate_password_hash(request.form['password'])
-            picture_profile = 'user.png'
             role = 'client'
 
-            user = User(name=name, email=email, username=username, password=password, picture_profile=picture_profile,role=role)
+            user = User(name=name, email=email, username=username, password=password,role=role)
             db.session.add(user)
             db.session.commit()
+
+            user_id = user.id
+            address = 'ninguno'
+            description = 'ninguno'
+            client = Client(user_id=user_id, address=address, description=description)
+            db.session.add(client)
+            db.session.commit()
+
             flash('Usuario registrado exitosamente')
             return render_template('auth/login.html')
         return render_template('auth/signup.html')
@@ -53,6 +61,6 @@ class AuthController():
     def logout(self):
         session.clear()
         logout_user()
-        return redirect(url_for('auth_router.login'))
+        return redirect(url_for('auth_router.main'))
 
 authcontroller = AuthController()

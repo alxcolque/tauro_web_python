@@ -13,9 +13,11 @@ class Product(db.Model):
     price = db.Column(db.Numeric(10,2))
     promo = db.Column(db.Numeric(10,2))
     description = db.Column(db.Text)
+    img_url = db.Column(String(150))
     #Default
     created_at = db.Column(TIMESTAMP, nullable=False, server_default=func.now())
     updated_at = db.Column(DateTime, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"))
     
     #R
+    #category = db.relationship("Category", backref='productos', lazy='dynamic')
     
