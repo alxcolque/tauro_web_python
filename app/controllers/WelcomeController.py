@@ -8,5 +8,9 @@ class WelcomeController():
 
     def index(self):
         return render_template('index.html')
+    def client(self):
+        return render_template('index.html')
+    def admin(self):
+        return render_template('home.html')
 
 welcomecontroller = WelcomeController()

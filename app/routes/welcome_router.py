@@ -7,3 +7,9 @@ welcome_router = Blueprint('welcome_router', __name__)
 @welcome_router.route('/',methods=['GET'])
 def index():
     return welcomecontroller.index()
+@welcome_router.route('/cliente',methods=['GET'])
+def client():
+    return welcomecontroller.client()
+@welcome_router.route('/admin',methods=['GET'])
+def admin():
+    return welcomecontroller.admin()

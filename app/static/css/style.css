@@ -277,7 +277,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../image/banner-bg.webp) no-repeat;
+    background: url(https://blogscdn.thehut.net/app/uploads/sites/450/2020/05/keto-alimentos_1588588014.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     padding-top: 17rem;
@@ -299,7 +299,8 @@ section{
 }
 
 .home .content p{
-    color:var(--light-color);
+    color:black;
+    font-weight: bold;
     font-size: 1.7rem;
     padding:1rem 0;
     line-height: 1.8;

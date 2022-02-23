@@ -17,13 +17,14 @@ def insertUser():
     #user_id = session.query(func.max(User.id)).scalar()
     id = 1
 
-    name = 'admin'
-    username = 'alec7'
-    email = 'a.colq.c@hotmail.com'
+    name = 'Don Juan'
+    username = 'admin'
+    email = 'admin@admin.com'
     password = bcrypt.generate_password_hash('ñlkjhgfd')
     photo = 'user.png'
+    role = 'admin'
 
-    user = User(id=id, name=name,username=username,email=email, password=password, photo=photo)
+    user = User(id=id, name=name,username=username,email=email, password=password, photo=photo, role=role)
     db.session.add(user)
     db.session.commit()
 

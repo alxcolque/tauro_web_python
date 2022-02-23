@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(50))
     password = db.Column(db.String(200))
     photo = db.Column(db.String(200))
+    role = db.Column(db.String(20))
     created_at = db.Column(TIMESTAMP, nullable=False, server_default=func.now())
     updated_at = db.Column(DateTime, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"))
 
