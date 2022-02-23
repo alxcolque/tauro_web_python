@@ -6,19 +6,30 @@ from app.models.Product import Product
 from app.models.Category import Category
 from app.models.User import User
 from app.models.Order import Order
+from app.models.OrderDetail import OrderDetail
 
 class WelcomeController():
     def __init__(self):
         pass
 
     def index(self):
+
         producto = Product.query.all()
         category = Category.query.all()
+        
         return render_template('index.html', producto = producto, categories=category)
     def client(self):
         producto = Product.query.all()
         category = Category.query.all()
-        return render_template('index.html', producto = producto, categories=category)
+        #user_id = current_user.id
+        cart = OrderDetail.query\
+            .join(Product, Product.id==OrderDetail.product_id)\
+            .all()
+
+        total = db.session.query(db.func.sum(Order.total))\
+            .filter(Order.status == 1)\
+            .scalar()
+        return render_template('index.html', producto = producto, categories=category,cart=cart, total=total)
     def admin(self):
         cusuario = User.query.count()
         cpedido = Order.query.count()

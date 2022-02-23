@@ -20,4 +20,6 @@ class Product(db.Model):
     
     #R
     #category = db.relationship("Category", backref='productos', lazy='dynamic')
+    order = db.relationship(
+        'OrderDetail', backref='product', lazy='dynamic')
     

@@ -49,23 +49,23 @@
           <tbody>
             {% for row in pedidos %}
             <tr>
-              <td>{{ row.id }}</td>
-              <td>{{ row.cantidad }}</td>
-              <td>{{ row.usuario.nombre }}</td>
-              <td>{{ row.producto.nom_prod }}</td>
+              <td>{{ row.product.id }}</td>
+              <td>{{ row.quantity }}</td>
+              <td>Cliente</td>
+              <td>{{ row.product.product }}</td>
               <th>
-                {% if row.estado == 1 %}
+                {% if row.status == 1 %}
                 <span class="badge badge-success"> FAVORITO </span>
-                {% elif row.estado == 2 %}
+                {% elif row.status == 2 %}
                 <span class="badge badge-success text-success"> CARRITO </span>
-                {% elif row.estado == 3 %}
+                {% elif row.status == 3 %}
                 <span class="badge badge-success text-dark"> PENDIENTE </span>
-                {% elif row.estado == 4 %}
+                {% elif row.status == 4 %}
                 <span class="badge badge-success text-success"> ACEPTADO </span>
-                {% elif row.estado == 5 %}
+                {% elif row.status == 5 %}
                 <span class="badge badge-success text-danger"> RECHAZADO </span>
                 {% else %}
-                <span class="badge badge-success text-success"> NADA </span>
+                <span class="badge badge-success text-success"> PEDIDO </span>
                 {% endif %}
 
               </th>

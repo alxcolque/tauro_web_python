@@ -117,8 +117,22 @@
 </section>
 
 <!-- categories section ends -->
-
-
+{% block cart%}
+    {% for data in cart  %}
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <!-- <img src="image/cart-img-1.png" alt=""> -->
+            <div class="content">
+                <h3>{{data.product.product}}</h3>
+                <span class="price">Precio: {{data.product.price}}/-</span>
+                <span class="quantity">cantidad : {{data.quantity}}</span>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="total"> total : Bs. {{total}}/- </div>
+    <a href="#" class="btn">Procesar pedido</a>
+{% endblock %}
+<!-- ordenes -->
 
 
 {% endblock %}

@@ -9,6 +9,16 @@ order_router = Blueprint('order_router', __name__)
 def index():
     return ordercontroller.index()
 
+@order_router.route('/client/micarrito',methods=['GET','POST'])
+@login_required
+def carrito():
+    return ordercontroller.carrito()
+
+@order_router.route('/client/micarrito/quitar/<int:id>',methods=['GET'])
+@login_required
+def quitar(id):
+    return ordercontroller.quitar(id)
+
 @order_router.route('/orders/aceptar/<int:id>',methods=['GET'])
 @login_required
 def aceptar(id):
